@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="lab_4">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>lab 4</title>
+</head>
+
+<body>
+    <header>
+        <h1>Lab 4</h1>
+    </header>
+    <main>
+
+        <div class='itm-col-l' ng-controller='toBuyController as toBuyCntr'>
+            <h2>items to buy</h2>
+            <div ng-if="toBuyCntr.toBuyItems.length == 0">
+                there no items in list
+            </div>
+            <div class='itm-lst'>
+                <div class="itm-elem">
+                    <div ng-repeat="item in toBuyCntr.toBuyItems">
+                        {{item.name}}
+                    </div>
+                </div>
+                <div class="itm-elem">
+                    <div ng-repeat="item in toBuyCntr.toBuyItems">
+                        {{item.amount}}
+                    </div>
+                </div>
+                <div class="itm-elem">
+                    <div ng-repeat="item in toBuyCntr.toBuyItems">
+                        <button ng-click="toBuyCntr.addToBought($index)">add to basket</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='itm-col-r' ng-controller='boughtController as boughtCntr'>
+            <h2>bought items</h2>
+            <div ng-if="boughtCntr.boughtItems.length == 0">
+                there no items in list
+            </div>
+            <div class='itm-lst'>
+                <div class="itm-elem">
+                    <div ng-repeat="item in boughtCntr.boughtItems">
+                        {{item.name}}
+                    </div>
+                </div>
+                <div class="itm-elem">
+                    <div ng-repeat="item in boughtCntr.boughtItems">
+                        {{item.amount}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
